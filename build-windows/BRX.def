@@ -1,0 +1,9 @@
+EXPORTS
+	brx_init_vk_device
+	brx_destroy_vk_device
+	brx_init_d3d12_device
+	brx_destroy_d3d12_device
+	brx_load_image_asset_calculate_subresource_index
+	brx_load_image_asset_calculate_subresource_memcpy_dests
+	brx_load_image_asset_header_from_input_stream
+	brx_load_image_asset_data_from_input_stream

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Android-arm64-v8a">
+      <Configuration>Debug</Configuration>
+      <Platform>Android-arm64-v8a</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Android-armeabi-v7a">
+      <Configuration>Debug</Configuration>
+      <Platform>Android-armeabi-v7a</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Android-x86">
+      <Configuration>Debug</Configuration>
+      <Platform>Android-x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Android-x86_64">
+      <Configuration>Debug</Configuration>
+      <Platform>Android-x86_64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android-arm64-v8a">
+      <Configuration>Release</Configuration>
+      <Platform>Android-arm64-v8a</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android-armeabi-v7a">
+      <Configuration>Release</Configuration>
+      <Platform>Android-armeabi-v7a</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android-x86">
+      <Configuration>Release</Configuration>
+      <Platform>Android-x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android-x86_64">
+      <Configuration>Release</Configuration>
+      <Platform>Android-x86_64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\brx_device.h" />
+    <ClInclude Include="..\include\brx_load_asset_input_stream.h" />
+    <ClInclude Include="..\include\brx_load_image_asset.h" />
+    <ClInclude Include="..\source\brx_align_up.h" />
+    <ClInclude Include="..\source\brx_allocator.h" />
+    <ClInclude Include="..\source\brx_format.h" />
+    <ClInclude Include="..\source\brx_load_dds_image_asset.h" />
+    <ClInclude Include="..\source\brx_load_pvr_image_asset.h" />
+    <ClInclude Include="..\source\brx_malloc.h" />
+    <ClInclude Include="..\source\brx_pause.h" />
+    <ClInclude Include="..\source\brx_vector.h" />
+    <ClInclude Include="..\source\brx_vk_device.h" />
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vk_platform.h" />
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vulkan.h" />
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vulkan_android.h" />
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vulkan_core.h" />
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vulkan_win32.h" />
+    <ClInclude Include="..\thirdparty\VulkanMemoryAllocator\include\vk_mem_alloc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\brx_align_up.cpp" />
+    <ClCompile Include="..\source\brx_format.cpp" />
+    <ClCompile Include="..\source\brx_load_dds_image_asset.cpp" />
+    <ClCompile Include="..\source\brx_load_image_asset.cpp" />
+    <ClCompile Include="..\source\brx_load_pvr_image_asset.cpp" />
+    <ClCompile Include="..\source\brx_malloc.cpp" />
+    <ClCompile Include="..\source\brx_pause.cpp" />
+    <ClCompile Include="..\source\brx_vk_buffer.cpp" />
+    <ClCompile Include="..\source\brx_vk_command_buffer.cpp" />
+    <ClCompile Include="..\source\brx_vk_descriptor.cpp" />
+    <ClCompile Include="..\source\brx_vk_device.cpp" />
+    <ClCompile Include="..\source\brx_vk_fence.cpp" />
+    <ClCompile Include="..\source\brx_vk_frame_buffer.cpp" />
+    <ClCompile Include="..\source\brx_vk_image.cpp" />
+    <ClCompile Include="..\source\brx_vk_pipeline.cpp" />
+    <ClCompile Include="..\source\brx_vk_queue.cpp" />
+    <ClCompile Include="..\source\brx_vk_render_pass.cpp" />
+    <ClCompile Include="..\source\brx_vk_sampler.cpp" />
+    <ClCompile Include="..\source\brx_vk_swap_chain.cpp" />
+    <ClCompile Include="..\source\brx_vk_vma.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\shaders\brx_define.sli" />
+    <None Include="Android.mk" />
+    <None Include="Application.mk" />
+    <None Include="libBRX.map" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{719A58B7-8373-4C08-988E-A21F43E7EE23}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+    <RootNamespace>BRX-Android</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android-x86'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <AndroidNdkVersion>25.2.9519653</AndroidNdkVersion>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android-x86'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <AndroidNdkVersion>25.2.9519653</AndroidNdkVersion>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android-x86_64'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <AndroidNdkVersion>25.2.9519653</AndroidNdkVersion>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android-x86_64'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <AndroidNdkVersion>25.2.9519653</AndroidNdkVersion>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Android-arm64-v8a'">
+    <AndroidNdkVersion>25.2.9519653</AndroidNdkVersion>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android-armeabi-v7a'" Label="Configuration">
+    <AndroidNdkVersion>25.2.9519653</AndroidNdkVersion>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Android-arm64-v8a'">
+    <AndroidNdkVersion>25.2.9519653</AndroidNdkVersion>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android-armeabi-v7a'" Label="Configuration">
+    <AndroidNdkVersion>25.2.9519653</AndroidNdkVersion>
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android-x86'">
+    <NMakeBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static"</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static" -B</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM :=android-28" clean</NMakeCleanCommandLine>
+    <AndroidSymbolDirectories>$(ProjectDir)\obj\local\$(PlatformTarget)</AndroidSymbolDirectories>
+    <OutDir>$(SolutionDir)\bin-agde\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj-agde\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android-x86_64'">
+    <NMakeBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static"</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static" -B</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM :=android-28" clean</NMakeCleanCommandLine>
+    <AndroidSymbolDirectories>$(ProjectDir)\obj\local\$(PlatformTarget)</AndroidSymbolDirectories>
+    <OutDir>$(SolutionDir)\bin-agde\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj-agde\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android-x86'">
+    <NMakeBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static"</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static" -B</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM :=android-28" clean</NMakeCleanCommandLine>
+    <AndroidSymbolDirectories>$(ProjectDir)\obj\local\$(PlatformTarget)</AndroidSymbolDirectories>
+    <OutDir>$(SolutionDir)\bin-agde\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj-agde\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android-x86_64'">
+    <NMakeBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static"</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static" -B</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM :=android-28" clean</NMakeCleanCommandLine>
+    <AndroidSymbolDirectories>$(ProjectDir)\obj\local\$(PlatformTarget)</AndroidSymbolDirectories>
+    <OutDir>$(SolutionDir)\bin-agde\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj-agde\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android-armeabi-v7a'">
+    <NMakeBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static"</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static" -B</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM :=android-28" clean</NMakeCleanCommandLine>
+    <AndroidSymbolDirectories>$(ProjectDir)\obj\local\$(PlatformTarget)</AndroidSymbolDirectories>
+    <OutDir>$(SolutionDir)\bin-agde\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj-agde\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android-arm64-v8a'">
+    <NMakeBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static"</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static" -B</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM :=android-28" clean</NMakeCleanCommandLine>
+    <AndroidSymbolDirectories>$(ProjectDir)\obj\local\$(PlatformTarget)</AndroidSymbolDirectories>
+    <OutDir>$(SolutionDir)\bin-agde\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj-agde\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android-arm64-v8a'">
+    <NMakeBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static"</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static" -B</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM :=android-28" clean</NMakeCleanCommandLine>
+    <AndroidSymbolDirectories>$(ProjectDir)\obj\local\$(PlatformTarget)</AndroidSymbolDirectories>
+    <OutDir>$(SolutionDir)\bin-agde\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj-agde\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android-armeabi-v7a'">
+    <NMakeBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static"</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_DEBUG:=$(UseDebugLibraries)" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM:=android-28" "APP_STL:=c++_static" -B</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>call "$(AndroidSdk)\ndk\$(AndroidNdkVersion)\ndk-build" -C "$(ProjectDir)\." NDK_PROJECT_PATH:=null "NDK_APPLICATION_MK:=.\Application.mk" "APP_BUILD_SCRIPT:=.\Android.mk" "NDK_OUT:=.\obj" "NDK_LIBS_OUT:=.\lib" "APP_ABI:=$(PlatformTarget)" "APP_PLATFORM :=android-28" clean</NMakeCleanCommandLine>
+    <AndroidSymbolDirectories>$(ProjectDir)\obj\local\$(PlatformTarget)</AndroidSymbolDirectories>
+    <OutDir>$(SolutionDir)\bin-agde\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj-agde\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android-x86'">
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android-x86_64'">
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android-x86'">
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android-x86_64'">
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android-arm64-v8a'">
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android-arm64-v8a'">
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android-armeabi-v7a'">
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android-armeabi-v7a'">
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <PropertyGroup>
+    <CleanDependson> $(CleanDependson) </CleanDependson>
+    <CppCleanDependson>
+    </CppCleanDependson>
+  </PropertyGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

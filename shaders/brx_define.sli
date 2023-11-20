@@ -1,0 +1,572 @@
+//
+// Copyright (C) YuqiaoZhang(HanetakaChou)
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published
+// by the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+//
+
+#ifndef _BRX_DEFINE_SLI_
+#define _BRX_DEFINE_SLI_ 1
+
+#if defined(__STDC__) || defined(__cplusplus)
+
+#define brx_float float
+
+#define brx_float2 DirectX::XMFLOAT2
+
+#define brx_float3 DirectX::XMFLOAT3
+
+#define brx_float4 DirectX::XMFLOAT4
+
+#define brx_int int32_t
+
+#define brx_uint uint32_t
+
+#define brx_column_major
+
+#define brx_float3x3 DirectX::XMFLOAT3X3
+
+#define brx_float4x4 DirectX::XMFLOAT4X4
+
+#define brx_cbuffer(name, space, register) struct name
+
+#define brx_read_only_byte_address_buffer(name, space, register, count)
+
+#define brx_texture_2d(name, space, register, count)
+
+#define brx_texture_2d_uint(name, space, register, count)
+
+#define brx_sampler_state(name, space, register, count)
+
+#define brx_write_only_texture_2d(name, space, register, count)
+
+#define brx_write_only_texture_2d_uint(name, space, register, count)
+
+#define brx_top_level_acceleration_structure(name, space, register, count)
+
+#define brx_root_signature_root_parameter_begin(name)
+
+#define brx_root_signature_root_parameter_split
+
+#define brx_root_signature_root_parameter_end
+
+#define brx_root_signature_root_cbv(set, binding)
+
+#define brx_root_signature_root_descriptor_table_srv(set, binding, count)
+
+#define brx_root_signature_root_descriptor_table_sampler(set, binding, count)
+
+#define brx_root_signature_root_descriptor_table_uav(set, binding, count)
+
+#define brx_root_signature_root_descriptor_table_top_level_acceleration_structure(set, binding, count)
+
+#elif defined(GL_SPIRV) || defined(VULKAN)
+
+precision highp float;
+
+precision highp int;
+
+precision highp texture2D;
+
+precision highp sampler;
+
+precision highp image2D;
+
+#extension GL_EXT_samplerless_texture_functions : enable
+
+#extension GL_EXT_control_flow_attributes : enable
+
+#extension GL_KHR_shader_subgroup_basic : enable
+
+#extension GL_KHR_shader_subgroup_arithmetic : enable
+
+// #extension GL_EXT_ray_tracing : enable
+
+#extension GL_EXT_ray_query : enable
+
+#extension GL_EXT_nonuniform_qualifier : enable
+
+#define brx_float float
+
+#define brx_float2 vec2
+
+#define brx_float3 vec3
+
+#define brx_float4 vec4
+
+#define brx_is_inf(x) (isinf(x))
+
+#define brx_int_as_float(x) (intBitsToFloat(x))
+
+#define brx_uint_as_float(x) (uintBitsToFloat(x))
+
+#define brx_int int
+
+#define brx_int2 ivec2
+
+#define brx_int3 ivec3
+
+#define brx_float_as_int(x) (floatBitsToInt(x))
+
+#define brx_uint uint
+
+#define brx_uint2 uvec2
+
+#define brx_uint3 uvec3
+
+#define brx_uint4 uvec4
+
+#define brx_float_as_uint(x) (floatBitsToUint(x))
+
+// TODO: cannot use layout qualifiers on structure members
+// #define brx_column_major layout(column_major)
+#define brx_column_major
+
+#define brx_float3x3 mat3x3
+
+#define brx_float4x4 mat4x4
+
+#define brx_float3x3_from_columns(column0, column1, column2) mat3x3((column0), (column1), (column2))
+
+#define brx_float3x3_from_rows(row0, row1, row2) mat3x3(vec3((row0).x, (row1).x, (row2).x), vec3((row0).y, (row1).y, (row2).y), vec3((row0).z, (row1).z, (row2).z))
+
+#define brx_ray_query rayQueryEXT
+
+#define brx_cbuffer(name, space, register) layout(set = space, binding = register, std140) uniform name
+
+#define brx_read_only_byte_address_buffer(name, space, register, count) layout(set = space, binding = register, std430) readonly buffer name##_T { uint data[]; } name[count]
+
+#define brx_texture_2d(name, space, register, count) layout(set = space, binding = register) uniform texture2D name[count]
+
+#define brx_texture_2d_uint(name, space, register, count) layout(set = space, binding = register) uniform utexture2D name[count]
+
+#define brx_sampler_state(name, space, register, count) layout(set = space, binding = register) uniform sampler name[count]
+
+#define brx_write_only_texture_2d(name, space, register, count) layout(set = space, binding = register) uniform writeonly image2D name[count]
+
+#define brx_write_only_texture_2d_uint(name, space, register, count) layout(set = space, binding = register) uniform writeonly uimage2D name[count]
+
+#define brx_top_level_acceleration_structure(name, space, register, count) layout(set = space, binding = register) uniform accelerationStructureEXT name[count]
+
+#define brx_root_signature_root_parameter_begin(name)
+
+#define brx_root_signature_root_parameter_split
+
+#define brx_root_signature_root_parameter_end
+
+#define brx_root_signature_root_cbv(space, register)
+
+#define brx_root_signature_root_descriptor_table_srv(space, register, count)
+
+#define brx_root_signature_root_descriptor_table_sampler(space, register, count)
+
+#define brx_root_signature_root_descriptor_table_uav(space, register, count)
+
+#define brx_root_signature_root_descriptor_table_top_level_acceleration_structure(space, register, count)
+
+#define brx_root_signature(macro, name)
+
+#define brx_branch [[dont_flatten]]
+
+#define brx_unroll [[unroll]]
+
+#define brx_unroll_x(x) [[unroll, dependency_length(x)]]
+
+#define brx_vertex_id gl_VertexIndex
+
+#define brx_position gl_Position
+
+#define brx_depth gl_FragDepth
+
+#define brx_vertex_shader_parameter_begin(name)
+
+#define brx_vertex_shader_parameter_split ;
+
+#define brx_vertex_shader_parameter_end(name) \
+    ;                                         \
+    void name()
+
+#define brx_vertex_shader_parameter_in_vertex_id const float _unused_in_vertex_id = -1.0
+
+#define brx_vertex_shader_parameter_in(type, name, semantic) layout(location = semantic) in type name
+
+#define brx_vertex_shader_parameter_out_position const float _unused_out_position = -1.0
+
+#define brx_vertex_shader_parameter_out(type, name, semantic) layout(location = semantic) out type name
+
+#define brx_early_depth_stencil layout(early_fragment_tests) in;
+
+#define brx_pixel_shader_parameter_begin(name)
+
+#define brx_pixel_shader_parameter_split ;
+
+#define brx_pixel_shader_parameter_end(name) \
+    ;                                        \
+    void name()
+
+#define brx_pixel_shader_parameter_in_position const float _unused_in_position = -1.0
+
+#define brx_pixel_shader_parameter_in(type, name, semantic) layout(location = semantic) in type name
+
+#define brx_pixel_shader_parameter_out_depth const float _unused_out_depth = -1.0
+
+#define brx_pixel_shader_parameter_out(type, name, semantic) layout(location = semantic) out type name
+
+#define brx_num_threads(x, y, z) layout(local_size_x = x, local_size_y = y, local_size_z = z) in;
+
+#define brx_group_shared shared
+
+#define brx_group_memory_barrier_with_group_sync() \
+    memoryBarrierShared();                         \
+    barrier()
+
+#define brx_group_id gl_WorkGroupID
+
+#define brx_group_thread_id gl_LocalInvocationID
+
+#define brx_group_index gl_LocalInvocationIndex
+
+#define brx_compute_shader_parameter_begin(name)
+
+#define brx_compute_shader_parameter_split ;
+
+#define brx_compute_shader_parameter_end(name) \
+    ;                                          \
+    void name()
+
+#define brx_compute_shader_parameter_in_group_id const float _unused_in_group_id = -1.0
+
+#define brx_compute_shader_parameter_in_group_thread_id const float _unused_in_group_thread_id = -1.0
+
+#define brx_compute_shader_parameter_in_group_index const float _unused_in_group_index = -1.0
+
+#define brx_array_constructor_begin(type, count) type[count](
+
+#define brx_array_constructor_split ,
+
+#define brx_array_constructor_end )
+
+#define brx_mul(x, y) ((x) * (y))
+
+#define brx_abs(x) (abs(x))
+
+#define brx_dot(x, y) (dot((x), (y)))
+
+#define brx_min(x, y) (min((x), (y)))
+
+#define brx_max(x, y) (max((x), (y)))
+
+#define brx_length(x) (length((x)))
+
+#define brx_normalize(x) (normalize(x))
+
+#define brx_cos(x) (cos((x)))
+
+#define brx_sin(x) (sin((x)))
+
+#define brx_sqrt(x) (sqrt(x))
+
+#define brx_firstbithigh(value) (findMSB(value))
+
+#define brx_reversebits(value) (bitfieldReverse(value))
+
+#define brx_clamp(x, min, max) (clamp((x), (min), (max)))
+
+#define brx_byte_address_buffer_load(object, location) ((object).data[((location) >> 2)])
+
+#define brx_byte_address_buffer_load2(object, location) uvec2(((object).data[((location) >> 2)]), ((object).data[((location) >> 2) + 1]))
+
+#define brx_byte_address_buffer_load3(object, location) uvec3(((object).data[((location) >> 2)]), ((object).data[((location) >> 2) + 1]), ((object).data[((location) >> 2) + 2]))
+
+#define brx_byte_address_buffer_load4(object, location) uvec4(((object).data[((location) >> 2)]), ((object).data[((location) >> 2) + 1]), ((object).data[((location) >> 2) + 2]), ((object).data[((location) >> 2) + 3]))
+
+#define brx_sample_2d(object, s, location) (texture(sampler2D((object), (s)), (location)))
+
+#define brx_load_2d(object, location) (texelFetch((object), (location).xy, (location).z))
+
+#define brx_store_2d(object, location, data) (imageStore((object), (location), (data)))
+
+#define brx_wave_lane_count gl_SubgroupSize
+
+#define brx_wave_active_sum(expr) (subgroupAdd(expr))
+
+#define BRX_RAY_FLAG_NONE gl_RayFlagsNoneEXT
+
+#define BRX_RAY_FLAG_CULL_BACK_FACING_TRIANGLES gl_RayFlagsCullBackFacingTrianglesEXT
+
+#define brx_ray_query_trace_ray_inline(ray_query_object, acceleration_structure, ray_flags, instance_inclusion_mask, origin, t_min, direction, t_max) (rayQueryInitializeEXT((ray_query_object), (acceleration_structure), (ray_flags), (instance_inclusion_mask), (origin), (t_min), (direction), (t_max)))
+
+#define brx_ray_query_proceed(ray_query_object) (rayQueryProceedEXT(ray_query_object))
+
+#define BRX_CANDIDATE_NON_OPAQUE_TRIANGLE gl_RayQueryCandidateIntersectionTriangleEXT
+
+#define brx_ray_query_candidate_type(ray_query_object) (rayQueryGetIntersectionTypeEXT((ray_query_object), false))
+
+#define brx_ray_query_committed_non_opaque_triangle_hit(ray_query_object) (rayQueryConfirmIntersectionEXT((ray_query_object)))
+
+#define BRX_COMMITTED_TRIANGLE_HIT gl_RayQueryCommittedIntersectionTriangleEXT
+
+#define brx_ray_query_committed_status(ray_query_object) (rayQueryGetIntersectionTypeEXT((ray_query_object), true))
+
+#define brx_ray_query_committed_instance_id(ray_query_object) (rayQueryGetIntersectionInstanceIdEXT((ray_query_object), true))
+
+#define brx_ray_query_committed_geometry_index(ray_query_object) (rayQueryGetIntersectionGeometryIndexEXT((ray_query_object), true))
+
+#define brx_ray_query_committed_primitive_index(ray_query_object) (rayQueryGetIntersectionPrimitiveIndexEXT((ray_query_object), true))
+
+#define brx_ray_query_committed_triangle_barycentrics(ray_query_object) (rayQueryGetIntersectionBarycentricsEXT((ray_query_object), true))
+
+#define brx_ray_query_committed_triangle_front_face(ray_query_object) (rayQueryGetIntersectionFrontFaceEXT((ray_query_object), true))
+
+#define brx_non_uniform_resource_index(i) (nonuniformEXT((i)))
+
+#elif defined(HLSL_VERSION) || defined(__HLSL_VERSION)
+
+#define brx_float float
+
+#define brx_float2 float2
+
+#define brx_float3 float3
+
+#define brx_float4 float4
+
+#define brx_is_inf(x) (isinf(x))
+
+#define brx_int_as_float(x) (asfloat(x))
+
+#define brx_uint_as_float(x) (asfloat(x))
+
+#define brx_int int
+
+#define brx_int2 int2
+
+#define brx_int3 int3
+
+#define brx_float_as_int(x) (asint(x))
+
+#define brx_uint uint
+
+#define brx_uint2 uint2
+
+#define brx_uint3 uint3
+
+#define brx_uint4 uint4
+
+#define brx_float_as_uint(x) (asuint(x))
+
+// #define brx_column_major column_major
+#define brx_column_major
+
+#define brx_float3x3 float3x3
+
+#define brx_float4x4 float4x4
+
+#define brx_float3x3_from_columns(column0, column1, column2) float3x3(float3((column0).x, (column1).x, (column2).x), float3((column0).y, (column1).y, (column2).y), float3((column0).z, (column1).z, (column2).z))
+
+#define brx_float3x3_from_rows(row0, row1, row2) float3x3((row0), (row1), (row2))
+
+#define brx_ray_query RayQuery<RAY_FLAG_NONE>
+
+#define brx_cbuffer(name, set, binding) cbuffer name : register(b##binding, space##set)
+
+#define brx_read_only_byte_address_buffer(name, set, binding, count) ByteAddressBuffer name[count] : register(t##binding, space##set)
+
+#define brx_texture_2d(name, set, binding, count) Texture2D name[count] : register(t##binding, space##set)
+
+#define brx_texture_2d_uint(name, set, binding, count) Texture2D<uint4> name[count] : register(t##binding, space##set)
+
+#define brx_sampler_state(name, set, binding, count) SamplerState name[count] : register(s##binding, space##set)
+
+#define brx_write_only_texture_2d(name, set, binding, count) RWTexture2D<float4> name[count] : register(u##binding, space##set)
+
+#define brx_write_only_texture_2d_uint(name, set, binding, count) RWTexture2D<uint4> name[count] : register(u##binding, space##set)
+
+#define brx_top_level_acceleration_structure(name, set, binding, count) RaytracingAccelerationStructure name[count] : register(t##binding, space##set)
+
+// https://gcc.gnu.org/onlinedocs/cpp/Stringizing.html
+#if 1
+#define brx_root_signature_stringizing(string) #string
+#define brx_root_signature_x_stringizing(string) brx_root_signature_stringizing(string)
+#else
+// comma is not supported by HLSL
+#define brx_root_signature_stringizing(...) #__VA_ARGS__
+#define brx_root_signature_x_stringizing(...) brx_root_signature_stringizing(__VA_ARGS__)
+#endif
+
+#define brx_root_signature_root_parameter_begin(name) brx_root_signature_x_stringizing(RootFlags(ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT)) ","
+
+#define brx_root_signature_root_parameter_split ","
+
+#define brx_root_signature_root_parameter_end
+
+#define brx_root_signature_root_cbv(set, binding) brx_root_signature_x_stringizing(CBV(b##binding, space = set, visibility = SHADER_VISIBILITY_ALL))
+
+#define brx_root_signature_root_descriptor_table_srv(set, binding, count) brx_root_signature_x_stringizing(DescriptorTable(SRV(t##binding, space = set, numdescriptors = count), visibility = SHADER_VISIBILITY_ALL))
+
+#define brx_root_signature_root_descriptor_table_sampler(set, binding, count) brx_root_signature_x_stringizing(DescriptorTable(Sampler(s##binding, space = set, numdescriptors = count), visibility = SHADER_VISIBILITY_ALL))
+
+#define brx_root_signature_root_descriptor_table_uav(set, binding, count) brx_root_signature_x_stringizing(DescriptorTable(UAV(u##binding, space = set, numdescriptors = count), visibility = SHADER_VISIBILITY_ALL))
+
+#define brx_root_signature_root_descriptor_table_top_level_acceleration_structure(set, binding, count) brx_root_signature_x_stringizing(DescriptorTable(SRV(t##binding, space = set, numdescriptors = count), visibility = SHADER_VISIBILITY_ALL))
+
+#define brx_root_signature(macro, name) [RootSignature(macro)]
+
+#define brx_branch [branch]
+
+#define brx_unroll [unroll]
+
+#define brx_unroll_x(x) [unroll(x)]
+
+#define brx_vertex_shader_parameter_begin(name) void name (
+
+#define brx_vertex_shader_parameter_split ,
+
+#define brx_vertex_shader_parameter_end(name) )
+
+#define brx_vertex_shader_parameter_in_vertex_id in uint brx_vertex_id : SV_VERTEXID
+
+#define brx_vertex_shader_parameter_in(type, name, location) in type name : LOCATION##location
+
+#define brx_vertex_shader_parameter_out_position out float4 brx_position : SV_POSITION
+
+#define brx_vertex_shader_parameter_out(type, name, location) out type name : LOCATION##location
+
+#define brx_early_depth_stencil [earlydepthstencil]
+
+#define brx_pixel_shader_parameter_begin(name) void name (
+
+#define brx_pixel_shader_parameter_split ,
+
+#define brx_pixel_shader_parameter_end(name) )
+
+#define brx_pixel_shader_parameter_in_position in float4 brx_position : SV_POSITION
+
+#define brx_pixel_shader_parameter_in(type, name, location) in type name : LOCATION##location
+
+#define brx_pixel_shader_parameter_out_depth out float brx_depth : SV_DEPTH
+
+#define brx_pixel_shader_parameter_out(type, name, location) out type name : SV_TARGET##location
+
+#define brx_num_threads(x, y, z) [numthreads(x, y, z)]
+
+#define brx_group_shared groupshared
+
+#define brx_group_memory_barrier_with_group_sync() GroupMemoryBarrierWithGroupSync()
+
+#define brx_compute_shader_parameter_begin(name) void name (
+
+#define brx_compute_shader_parameter_split ,
+
+#define brx_compute_shader_parameter_end(name) )
+
+#define brx_compute_shader_parameter_in_group_id in uint3 brx_group_id : SV_GroupID
+
+#define brx_compute_shader_parameter_in_group_thread_id in uint3 brx_group_thread_id : SV_GroupThreadID
+
+#define brx_compute_shader_parameter_in_group_index in uint brx_group_index : SV_GroupIndex
+
+#define brx_array_constructor_begin(type, count) {
+
+#define brx_array_constructor_split ,
+
+#define brx_array_constructor_end }
+
+#define brx_mul(x, y) (mul((x), (y)))
+
+#define brx_dot(x, y) (dot((x), (y)))
+
+#define brx_min(x, y) (min((x), (y)))
+
+#define brx_max(x, y) (max((x), (y)))
+
+#define brx_abs(x) (abs(x))
+
+#define brx_length(x) (length((x)))
+
+#define brx_normalize(x) (normalize(x))
+
+#define brx_cos(x) (cos((x)))
+
+#define brx_sin(x) (sin((x)))
+
+#define brx_sqrt(x) (sqrt(x))
+
+#define brx_firstbithigh(value) (firstbithigh(value))
+
+#define brx_reversebits(value) (reversebits(value))
+
+#define brx_clamp(x, min, max) (clamp((x), (min), (max)))
+
+#define brx_byte_address_buffer_load(object, location) ((object).Load((location)))
+
+#define brx_byte_address_buffer_load2(object, location) ((object).Load2((location)))
+
+#define brx_byte_address_buffer_load3(object, location) ((object).Load3((location)))
+
+#define brx_byte_address_buffer_load4(object, location) ((object).Load4((location)))
+
+#define brx_sample_2d(object, s, location) ((object).Sample((s), (location)))
+
+#define brx_load_2d(object, location) ((object).Load(location))
+
+#define brx_store_2d(object, location, data) (((object)[location]) = (data))
+
+#define brx_wave_lane_count (WaveGetLaneCount())
+
+#define brx_wave_active_sum(expr) (WaveActiveSum(expr))
+
+#define BRX_RAY_FLAG_NONE RAY_FLAG_NONE
+
+#define BRX_RAY_FLAG_CULL_BACK_FACING_TRIANGLES RAY_FLAG_CULL_BACK_FACING_TRIANGLES	
+
+inline RayDesc brx_make_ray_desc(float3 origin, float t_min, float3 direction, float t_max)
+{
+    RayDesc ray_desc;
+    ray_desc.Origin = origin;
+    ray_desc.TMin = t_min;
+    ray_desc.Direction = direction;
+    ray_desc.TMax = t_max;
+    return ray_desc;
+}
+
+#define brx_ray_query_trace_ray_inline(ray_query_object, acceleration_structure, ray_flags, instance_inclusion_mask, origin, t_min, direction, t_max) ((ray_query_object).TraceRayInline((acceleration_structure), (ray_flags), (instance_inclusion_mask), brx_make_ray_desc((origin), (t_min), (direction), (t_max))))
+
+#define brx_ray_query_proceed(ray_query_object) ((ray_query_object).Proceed())
+
+#define BRX_CANDIDATE_NON_OPAQUE_TRIANGLE CANDIDATE_NON_OPAQUE_TRIANGLE
+
+#define brx_ray_query_candidate_type(ray_query_object) ((ray_query_object).CandidateType())
+
+#define brx_ray_query_committed_non_opaque_triangle_hit(ray_query_object) ((ray_query_object).CommitNonOpaqueTriangleHit())
+
+#define BRX_COMMITTED_TRIANGLE_HIT COMMITTED_TRIANGLE_HIT
+
+#define brx_ray_query_committed_status(ray_query_object) ((ray_query_object).CommittedStatus())
+
+#define brx_ray_query_committed_instance_id(ray_query_object) ((ray_query_object).CommittedInstanceID())
+
+#define brx_ray_query_committed_geometry_index(ray_query_object) ((ray_query_object).CommittedGeometryIndex())
+
+#define brx_ray_query_committed_primitive_index(ray_query_object) ((ray_query_object).CommittedPrimitiveIndex())
+
+#define brx_ray_query_committed_triangle_barycentrics(ray_query_object) ((ray_query_object).CommittedTriangleBarycentrics())
+
+#define brx_ray_query_committed_triangle_front_face(ray_query_object) ((ray_query_object).CommittedTriangleFrontFace())
+
+#define brx_non_uniform_resource_index(i) (NonUniformResourceIndex((i)))
+
+#else
+#error Unknown Compiler
+#endif
+
+#endif

@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+     Copyright (C) 2021 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{0c20aea8-9411-49d5-8fe0-9524265c66df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{4b49c58f-ef48-4bea-9c5f-c180844ab28f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty">
+      <UniqueIdentifier>{42f52d59-0895-4515-9ea0-d70d949abc23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\Vulkan-Headers">
+      <UniqueIdentifier>{bd8acdb6-8e2b-45c1-b5af-c0fd22b0910a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\Vulkan-Headers\include">
+      <UniqueIdentifier>{5cbab276-e7b4-4a08-afdf-9a756eb0eefa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\Vulkan-Headers\include\vulkan">
+      <UniqueIdentifier>{4f03b6c7-7caf-4344-88ed-243f5af17a0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\VulkanMemoryAllocator">
+      <UniqueIdentifier>{3d9af7d0-369d-45a4-bac5-6b18b20c93d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\VulkanMemoryAllocator\include">
+      <UniqueIdentifier>{cf06b637-6b93-42a4-a28a-ce3a4bac6bb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="build-android">
+      <UniqueIdentifier>{2ab431a3-4f6e-4015-a145-7c3eb9a2216f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{4351d6ae-dbb9-43c0-aed2-4b9ff475adf4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\brx_device.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_allocator.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_malloc.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_vector.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_vk_device.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vulkan.h">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vulkan_android.h">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vulkan_core.h">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vulkan_win32.h">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vk_platform.h">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\VulkanMemoryAllocator\include\vk_mem_alloc.h">
+      <Filter>thirdparty\VulkanMemoryAllocator\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_format.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_load_dds_image_asset.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_align_up.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\brx_load_asset_input_stream.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\brx_load_image_asset.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_pause.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_load_pvr_image_asset.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\brx_malloc.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_buffer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_command_buffer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_descriptor.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_device.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_fence.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_frame_buffer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_image.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_pipeline.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_queue.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_render_pass.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_sampler.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_swap_chain.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_format.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_load_dds_image_asset.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_load_image_asset.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_align_up.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_pause.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_vma.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_load_pvr_image_asset.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libBRX.map">
+      <Filter>build-android</Filter>
+    </None>
+    <None Include="Android.mk">
+      <Filter>build-android</Filter>
+    </None>
+    <None Include="Application.mk">
+      <Filter>build-android</Filter>
+    </None>
+    <None Include="..\shaders\brx_define.sli">
+      <Filter>shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>

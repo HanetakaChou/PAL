@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{48d853c0-865a-4064-aafd-ea373bcde1e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{d69d837e-357b-4b9f-91f5-65713ca28d3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty">
+      <UniqueIdentifier>{01f95fe5-51f4-474f-9049-691cb248ee93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="build-windows">
+      <UniqueIdentifier>{14677299-59e5-4f47-9d27-8f5cdbf9a25e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\VulkanMemoryAllocator">
+      <UniqueIdentifier>{ab5eb5da-1ca6-4d86-8d69-2962fd6a93c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\VulkanMemoryAllocator\include">
+      <UniqueIdentifier>{095e80ee-5fa7-4d43-b97f-49604eaf147d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\Vulkan-Headers">
+      <UniqueIdentifier>{d1a079d6-ab00-455c-99f1-c2098e405bbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\Vulkan-Headers\include">
+      <UniqueIdentifier>{e05b38d2-7d66-418f-ae43-8c3b7d37d7cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\Vulkan-Headers\include\vulkan">
+      <UniqueIdentifier>{fc7745d0-0860-4ce2-aa38-687683961c29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\D3D12MemoryAllocator">
+      <UniqueIdentifier>{5409477e-692d-46d1-b1b9-e896bdab689e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\D3D12MemoryAllocator\include">
+      <UniqueIdentifier>{8c4087f1-67ed-4740-82ee-b9c25dfb22ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\D3D12MemoryAllocator\src">
+      <UniqueIdentifier>{c8158a1e-cf32-4ee8-9a87-1d63ae4c26a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{f6c4c4cc-c5fa-48a8-886d-1af700e9afb3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\brx_malloc.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_buffer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_command_buffer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_descriptor.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_device.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_fence.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_frame_buffer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_image.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_pipeline.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_queue.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_render_pass.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_sampler.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_swap_chain.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>build-windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_format.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_buffer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_command_buffer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_descriptor.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_descriptor_allocator.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_device.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_fence.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_frame_buffer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_image.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_pipeline.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_queue.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_render_pass.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_sampler.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_d3d12_swap_chain.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparty\D3D12MemoryAllocator\src\D3D12MemAlloc.cpp">
+      <Filter>thirdparty\D3D12MemoryAllocator\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_align_up.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_load_image_asset.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_load_dds_image_asset.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_pause.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_vk_vma.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\brx_load_pvr_image_asset.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\source\brx_malloc.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_vector.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_vk_device.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_allocator.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\brx_device.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\VulkanMemoryAllocator\include\vk_mem_alloc.h">
+      <Filter>thirdparty\VulkanMemoryAllocator\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vk_platform.h">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vulkan.h">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vulkan_android.h">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vulkan_core.h">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\Vulkan-Headers\include\vulkan\vulkan_win32.h">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_format.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_d3d12_device.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_d3d12_descriptor_allocator.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparty\D3D12MemoryAllocator\include\D3D12MemAlloc.h">
+      <Filter>thirdparty\D3D12MemoryAllocator\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\brx_load_image_asset.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_align_up.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\brx_load_asset_input_stream.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_load_dds_image_asset.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_pause.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_map.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\brx_load_pvr_image_asset.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BRX.def">
+      <Filter>build-windows</Filter>
+    </None>
+    <None Include="..\shaders\brx_define.sli">
+      <Filter>shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
