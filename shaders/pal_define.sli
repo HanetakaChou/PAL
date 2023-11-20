@@ -1,0 +1,473 @@
+//
+// Copyright (C) YuqiaoZhang(HanetakaChou)
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published
+// by the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+//
+
+#ifndef _PAL_DEFINE_SLI_
+#define _PAL_DEFINE_SLI_ 1
+
+#if defined(__STDC__) || defined(__cplusplus)
+
+#define pal_float float
+
+#define pal_float2 DirectX::XMFLOAT2
+
+#define pal_float3 DirectX::XMFLOAT3
+
+#define pal_float4 DirectX::XMFLOAT4
+
+#define pal_int int
+
+#define pal_column_major
+
+#define pal_float3x3 DirectX::XMFLOAT3X4
+
+#define pal_float4x4 DirectX::XMFLOAT4X4
+
+#define pal_cbuffer(name, space, register) struct name
+
+#define pal_texture_2d(name, space, register, count)
+
+#define pal_sampler_state(name, space, register, count)
+
+#define pal_write_only_texture_2d(name, space, register, count)
+
+#define pal_top_level_acceleration_structure(name, space, register, count)
+
+#define pal_root_signature_root_parameter_begin(name)
+
+#define pal_root_signature_root_parameter_split
+
+#define pal_root_signature_root_parameter_end
+
+#define pal_root_signature_root_cbv(set, binding)
+
+#define pal_root_signature_root_descriptor_table_srv(set, binding, count)
+
+#define pal_root_signature_root_descriptor_table_sampler(set, binding, count)
+
+#define pal_root_signature_root_descriptor_table_uav(set, binding, count)
+
+#define pal_root_signature_root_descriptor_table_top_level_acceleration_structure(set, binding, count)
+
+#elif defined(GL_SPIRV) || defined(VULKAN)
+
+precision highp float;
+
+precision highp int;
+
+precision highp texture2D;
+
+precision highp sampler;
+
+precision highp image2D;
+
+#extension GL_EXT_control_flow_attributes : enable
+
+#extension GL_KHR_shader_subgroup_basic : enable
+
+#extension GL_KHR_shader_subgroup_arithmetic : enable
+
+// #extension GL_EXT_ray_tracing : enable
+
+#extension GL_EXT_ray_query : enable
+
+#define pal_float float
+
+#define pal_float2 vec2
+
+#define pal_float3 vec3
+
+#define pal_float4 vec4
+
+#define pal_is_inf(x) (isinf(x))
+
+#define pal_int_as_float(x) (intBitsToFloat(x))
+
+#define pal_uint_as_float(x) (uintBitsToFloat(x))
+
+#define pal_int int
+
+#define pal_int2 ivec2
+
+#define pal_int3 ivec3
+
+#define pal_float_as_int(x) (floatBitsToInt(x))
+
+#define pal_uint uint
+
+#define pal_float_as_uint(x) (floatBitsToUint(x))
+
+#define pal_column_major layout(column_major)
+
+#define pal_float3x3 mat3x3
+
+#define pal_float4x4 mat4x4
+
+#define pal_float3x3_from_columns(column0, column1, column2) mat3x3((column0), (column1), (column2))
+
+#define pal_float3x3_from_rows(row0, row1, row2) mat3x3(vec3((row0).x, (row1).x, (row2).x), vec3((row0).y, (row1).y, (row2).y), vec3((row0).z, (row1).z, (row2).z))
+
+#define pal_ray_query rayQueryEXT
+
+#define pal_cbuffer(name, space, register) layout(set = space, binding = register) uniform name
+
+#define pal_texture_2d(name, space, register, count) layout(set = space, binding = register) uniform texture2D name[count]
+
+#define pal_sampler_state(name, space, register, count) layout(set = space, binding = register) uniform sampler name[count]
+
+#define pal_write_only_texture_2d(name, space, register, count) layout(set = space, binding = register) uniform writeonly image2D name[count]
+
+#define pal_top_level_acceleration_structure(name, space, register, count) layout(set = space, binding = register) uniform accelerationStructureEXT name[count]
+
+#define pal_root_signature_root_parameter_begin(name)
+
+#define pal_root_signature_root_parameter_split
+
+#define pal_root_signature_root_parameter_end
+
+#define pal_root_signature_root_cbv(space, register)
+
+#define pal_root_signature_root_descriptor_table_srv(space, register, count)
+
+#define pal_root_signature_root_descriptor_table_sampler(space, register, count)
+
+#define pal_root_signature_root_descriptor_table_uav(space, register, count)
+
+#define pal_root_signature_root_descriptor_table_top_level_acceleration_structure(space, register, count)
+
+#define pal_root_signature(macro, name)
+
+#define pal_branch [[dont_flatten]]
+
+#define pal_unroll [[unroll]]
+
+#define pal_unroll_x(x) [[unroll, dependency_length(x)]]
+
+#define pal_vertex_id gl_VertexIndex
+
+#define pal_position gl_Position
+
+#define pal_depth gl_FragDepth
+
+#define pal_vertex_shader_parameter_begin(name)
+
+#define pal_vertex_shader_parameter_split ;
+
+#define pal_vertex_shader_parameter_end(name) \
+    ;                                         \
+    void name()
+
+#define pal_vertex_shader_parameter_in_vertex_id const float _unused_in_vertex_id = -1.0
+
+#define pal_vertex_shader_parameter_in(type, name, semantic) layout(location = semantic) in type name
+
+#define pal_vertex_shader_parameter_out_position const float _unused_out_position = -1.0
+
+#define pal_vertex_shader_parameter_out(type, name, semantic) layout(location = semantic) out type name
+
+#define pal_early_depth_stencil layout(early_fragment_tests) in;
+
+#define pal_pixel_shader_parameter_begin(name)
+
+#define pal_pixel_shader_parameter_split ;
+
+#define pal_pixel_shader_parameter_end(name) \
+    ;                                        \
+    void name()
+
+#define pal_pixel_shader_parameter_in_position const float _unused_in_position = -1.0
+
+#define pal_pixel_shader_parameter_in(type, name, semantic) layout(location = semantic) in type name
+
+#define pal_pixel_shader_parameter_out_depth const float _unused_out_depth = -1.0
+
+#define pal_pixel_shader_parameter_out(type, name, semantic) layout(location = semantic) out type name
+
+#define pal_num_threads(x, y, z) layout(local_size_x = x, local_size_y = y, local_size_z = z) in;
+
+#define pal_group_shared shared
+
+#define pal_group_memory_barrier_with_group_sync() \
+    memoryBarrierShared();                         \
+    barrier()
+
+#define pal_group_id gl_WorkGroupID
+
+#define pal_group_thread_id gl_LocalInvocationID
+
+#define pal_group_index gl_LocalInvocationIndex
+
+#define pal_compute_shader_parameter_begin(name)
+
+#define pal_compute_shader_parameter_split ;
+
+#define pal_compute_shader_parameter_end(name) \
+    ;                                          \
+    void name()
+
+#define pal_compute_shader_parameter_in_group_id const float _unused_in_group_id = -1.0
+
+#define pal_compute_shader_parameter_in_group_thread_id const float _unused_in_group_thread_id = -1.0
+
+#define pal_compute_shader_parameter_in_group_index const float _unused_in_group_index = -1.0
+
+#define pal_array_constructor_begin(type, count) type[count](
+
+#define pal_array_constructor_split ,
+
+#define pal_array_constructor_end )
+
+#define pal_mul(x, y) ((x) * (y))
+
+#define pal_abs(x) (abs(x))
+
+#define pal_dot(x, y) (dot((x), (y)))
+
+#define pal_min(x, y) (min((x), (y)))
+
+#define pal_max(x, y) (max((x), (y)))
+
+#define pal_length(x) (length((x)))
+
+#define pal_normalize(x) (normalize(x))
+
+#define pal_cos(x) (cos((x)))
+
+#define pal_sin(x) (sin((x)))
+
+#define pal_sqrt(x) (sqrt(x))
+
+#define pal_firstbithigh(value) (findMSB(value))
+
+#define pal_reversebits(value) (bitfieldReverse(value))
+
+#define pal_sample_2d(object, s, location) (texture(sampler2D((object), (s)), (location)))
+
+#define pal_load_2d(object, s, location) (texelFetch(sampler2D((object), (s)), (location).xy, (location).z))
+
+#define pal_store_2d(object, location, data) (imageStore((object), (location), (data)))
+
+#define pal_wave_lane_count gl_SubgroupSize
+
+#define pal_wave_active_sum(expr) (subgroupAdd(expr))
+
+#define PAL_RAY_FLAG_NONE gl_RayFlagsNoneEXT
+
+#define pal_ray_query_trace_ray_inline(ray_query_object, acceleration_structure, ray_flags, instance_inclusion_mask, origin, t_min, direction, t_max) (rayQueryInitializeEXT((ray_query_object), (acceleration_structure), (ray_flags), (instance_inclusion_mask), (origin), (t_min), (direction), (t_max)))
+
+#define pal_ray_query_proceed(ray_query_object) (rayQueryProceedEXT(ray_query_object))
+
+#define PAL_COMMITTED_NOTHING gl_RayQueryCommittedIntersectionNoneEXT
+
+#define pal_ray_query_committed_status(ray_query_object) (rayQueryGetIntersectionTypeEXT((ray_query_object), true))
+
+#elif defined(HLSL_VERSION) || defined(__HLSL_VERSION)
+
+#define pal_float float
+
+#define pal_float2 float2
+
+#define pal_float3 float3
+
+#define pal_float4 float4
+
+#define pal_is_inf(x) (isinf(x))
+
+#define pal_int_as_float(x) (asfloat(x))
+
+#define pal_uint_as_float(x) (asfloat(x))
+
+#define pal_int int
+
+#define pal_int2 int2
+
+#define pal_int3 int3
+
+#define pal_float_as_int(x) (asint(x))
+
+#define pal_uint uint
+
+#define pal_float_as_uint(x) (asuint(x))
+
+#define pal_column_major column_major
+
+#define pal_float3x3 float3x3
+
+#define pal_float4x4 float4x4
+
+#define pal_float3x3_from_columns(column0, column1, column2) float3x3(float3((column0).x, (column1).x, (column2).x), float3((column0).y, (column1).y, (column2).y), float3((column0).z, (column1).z, (column2).z))
+
+#define pal_float3x3_from_rows(row0, row1, row2) float3x3((row0), (row1), (row2))
+
+#define pal_ray_query RayQuery<RAY_FLAG_NONE>
+
+#define pal_cbuffer(name, set, binding) cbuffer name : register(b##binding, space##set)
+
+#define pal_texture_2d(name, set, binding, count) Texture2D name[count] : register(t##binding, space##set)
+
+#define pal_sampler_state(name, set, binding, count) SamplerState name[count] : register(s##binding, space##set)
+
+#define pal_write_only_texture_2d(name, set, binding, count) RWTexture2D<float4> name[count] : register(u##binding, space##set)
+
+#define pal_top_level_acceleration_structure(name, set, binding, count) RaytracingAccelerationStructure name[count] : register(t##binding, space##set)
+
+// https://gcc.gnu.org/onlinedocs/cpp/Stringizing.html
+#if 1
+#define pal_root_signature_stringizing(string) #string
+#define pal_root_signature_x_stringizing(string) pal_root_signature_stringizing(string)
+#else
+// comma is not supported by HLSL
+#define pal_root_signature_stringizing(...) #__VA_ARGS__
+#define pal_root_signature_x_stringizing(...) pal_root_signature_stringizing(__VA_ARGS__)
+#endif
+
+#define pal_root_signature_root_parameter_begin(name) pal_root_signature_x_stringizing(RootFlags(ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT)) ","
+
+#define pal_root_signature_root_parameter_split ","
+
+#define pal_root_signature_root_parameter_end
+
+#define pal_root_signature_root_cbv(set, binding) pal_root_signature_x_stringizing(CBV(b##binding, space = set, visibility = SHADER_VISIBILITY_ALL))
+
+#define pal_root_signature_root_descriptor_table_srv(set, binding, count) pal_root_signature_x_stringizing(DescriptorTable(SRV(t##binding, space = set, numdescriptors = count), visibility = SHADER_VISIBILITY_ALL))
+
+#define pal_root_signature_root_descriptor_table_sampler(set, binding, count) pal_root_signature_x_stringizing(DescriptorTable(Sampler(s##binding, space = set, numdescriptors = count), visibility = SHADER_VISIBILITY_ALL))
+
+#define pal_root_signature_root_descriptor_table_uav(set, binding, count) pal_root_signature_x_stringizing(DescriptorTable(UAV(u##binding, space = set, numdescriptors = count), visibility = SHADER_VISIBILITY_ALL))
+
+#define pal_root_signature_root_descriptor_table_top_level_acceleration_structure(set, binding, count) pal_root_signature_x_stringizing(DescriptorTable(SRV(t##binding, space = set, numdescriptors = count), visibility = SHADER_VISIBILITY_ALL))
+
+#define pal_root_signature(macro, name) [RootSignature(macro)]
+
+#define pal_branch [branch]
+
+#define pal_unroll [unroll]
+
+#define pal_unroll_x(x) [unroll(x)]
+
+#define pal_vertex_shader_parameter_begin(name) void name (
+
+#define pal_vertex_shader_parameter_split ,
+
+#define pal_vertex_shader_parameter_end(name) )
+
+#define pal_vertex_shader_parameter_in_vertex_id in uint pal_vertex_id : SV_VERTEXID
+
+#define pal_vertex_shader_parameter_in(type, name, location) in type name : LOCATION##location
+
+#define pal_vertex_shader_parameter_out_position out float4 pal_position : SV_POSITION
+
+#define pal_vertex_shader_parameter_out(type, name, location) out type name : LOCATION##location
+
+#define pal_early_depth_stencil [earlydepthstencil]
+
+#define pal_pixel_shader_parameter_begin(name) void name (
+
+#define pal_pixel_shader_parameter_split ,
+
+#define pal_pixel_shader_parameter_end(name) )
+
+#define pal_pixel_shader_parameter_in_position in float4 pal_position : SV_POSITION
+
+#define pal_pixel_shader_parameter_in(type, name, location) in type name : LOCATION##location
+
+#define pal_pixel_shader_parameter_out_depth out float pal_depth : SV_DEPTH
+
+#define pal_pixel_shader_parameter_out(type, name, location) out type name : SV_TARGET##location
+
+#define pal_num_threads(x, y, z) [numthreads(x, y, z)]
+
+#define pal_group_shared groupshared
+
+#define pal_group_memory_barrier_with_group_sync() GroupMemoryBarrierWithGroupSync()
+
+#define pal_compute_shader_parameter_begin(name) void name (
+
+#define pal_compute_shader_parameter_split ,
+
+#define pal_compute_shader_parameter_end(name) )
+
+#define pal_compute_shader_parameter_in_group_id in uint3 pal_group_id : SV_GroupID
+
+#define pal_compute_shader_parameter_in_group_thread_id in uint3 pal_group_thread_id : SV_GroupThreadID
+
+#define pal_compute_shader_parameter_in_group_index in uint pal_group_index : SV_GroupIndex
+
+#define pal_array_constructor_begin(type, count) {
+
+#define pal_array_constructor_split ,
+
+#define pal_array_constructor_end }
+
+#define pal_mul(x, y) (mul((x), (y)))
+
+#define pal_dot(x, y) (dot((x), (y)))
+
+#define pal_min(x, y) (min((x), (y)))
+
+#define pal_max(x, y) (max((x), (y)))
+
+#define pal_abs(x) (abs(x))
+
+#define pal_length(x) (length((x)))
+
+#define pal_normalize(x) (normalize(x))
+
+#define pal_cos(x) (cos((x)))
+
+#define pal_sin(x) (sin((x)))
+
+#define pal_sqrt(x) (sqrt(x))
+
+#define pal_firstbithigh(value) (firstbithigh(value))
+
+#define pal_reversebits(value) (reversebits(value))
+
+#define pal_sample_2d(object, s, location) ((object).Sample((s), (location)))
+
+#define pal_load_2d(object, s, location) ((object).Load(location))
+
+#define pal_store_2d(object, location, data) (((object)[location]) = (data))
+
+#define pal_wave_lane_count (WaveGetLaneCount())
+
+#define pal_wave_active_sum(expr) (WaveActiveSum(expr))
+
+#define PAL_RAY_FLAG_NONE RAY_FLAG_NONE
+
+inline RayDesc pal_make_ray_desc(float3 origin, float t_min, float3 direction, float t_max)
+{
+    RayDesc ray_desc;
+    ray_desc.Origin = origin;
+    ray_desc.TMin = t_min;
+    ray_desc.Direction = direction;
+    ray_desc.TMax = t_max;
+    return ray_desc;
+}
+
+#define pal_ray_query_trace_ray_inline(ray_query_object, acceleration_structure, ray_flags, instance_inclusion_mask, origin, t_min, direction, t_max) ((ray_query_object).TraceRayInline((acceleration_structure), (ray_flags), (instance_inclusion_mask), pal_make_ray_desc((origin), (t_min), (direction), (t_max))))
+
+#define pal_ray_query_proceed(ray_query_object) ((ray_query_object).Proceed())
+
+#define PAL_COMMITTED_NOTHING COMMITTED_NOTHING
+
+#define pal_ray_query_committed_status(ray_query_object) ((ray_query_object).CommittedStatus())
+
+#else
+#error Unknown Compiler
+#endif
+
+#endif

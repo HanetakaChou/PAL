@@ -1,0 +1,9 @@
+EXPORTS
+	pal_init_vk_device
+	pal_destroy_vk_device
+	pal_init_d3d12_device
+	pal_destroy_d3d12_device
+	pal_load_image_asset_calculate_subresource_index
+	pal_load_image_asset_calculate_subresource_memcpy_dests
+	pal_load_image_asset_header_from_input_stream
+	pal_load_image_asset_data_from_input_stream
